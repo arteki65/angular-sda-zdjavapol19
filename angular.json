@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "angular-sda"
+  "defaultProject": "angular-sda",
+  "cli": {
+    "analytics": false
+  }
 }
