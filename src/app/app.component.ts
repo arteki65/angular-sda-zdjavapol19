@@ -13,7 +13,7 @@ export class AppComponent implements OnInit, OnDestroy {
   headerTextColor: 'yellow' | 'blue' = 'yellow';
   backgroundColor: 'red' | 'black' = 'red';
   text = '';
-  text2 = '';
+  showTrainingSection = true;
 
   private interval: any | null = null;
 
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   clickHandler() {
-    console.log(this.text);
+    this.showTrainingSection = !this.showTrainingSection;
   }
 
   onMouseMove() {

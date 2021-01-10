@@ -5,13 +5,16 @@
 >
   {{ title | uppercase }}
 </h1>
-<app-copyrights></app-copyrights>
-<img [src]="imgSrc" [alt]="title" />
-<a [href]="linkUrl" target="_blank">link</a>
-<a [href]="linkUrl2" target="_blank">second link</a>
-<button (click)="clickHandler()">Click Me</button>
-<br />
-<input type="text" [(ngModel)]="text" />
-<p>{{ text }}</p>
-<input type="text2" [(ngModel)]="text2" />
-<p>{{ text2 | uppercase }}</p>
+<button (click)="clickHandler()">Tooggle training section</button>
+
+<div *ngIf="showTrainingSection">
+  <app-copyrights></app-copyrights>
+  <!-- TODO: show below div only if text field is not empty -->
+  <div>
+    <img [src]="imgSrc" [alt]="title" />
+    <a [href]="linkUrl" target="_blank">link</a>
+    <a [href]="linkUrl2" target="_blank">second link</a>
+  </div>
+  <input type="text" [(ngModel)]="text" />
+  <p>{{ text }}</p>
+</div>
