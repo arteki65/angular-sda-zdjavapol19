@@ -11,6 +11,7 @@ export class AppComponent implements OnInit, OnDestroy {
   linkUrl = 'https://google.com';
   headerTextColor: 'yellow' | 'blue' = 'yellow';
   backgroundColor: 'red' | 'black' = 'red';
+  text = '';
 
   private interval: any | null = null;
 
@@ -33,7 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   clickHandler() {
-    console.log('button was clicked');
+    console.log(this.text);
   }
 
   onMouseMove() {
