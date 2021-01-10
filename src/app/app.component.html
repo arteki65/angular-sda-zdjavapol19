@@ -9,8 +9,7 @@
 
 <div *ngIf="showTrainingSection">
   <app-copyrights></app-copyrights>
-  <!-- TODO: show below div only if text field is not empty -->
-  <div>
+  <div *ngIf="text != ''">
     <img [src]="imgSrc" [alt]="title" />
     <a [href]="linkUrl" target="_blank">link</a>
     <a [href]="linkUrl2" target="_blank">second link</a>
