@@ -12,12 +12,11 @@
   Angular Directives Are Cool!
 </p>
 
-<div
-  class="color-item"
-  *ngFor="let color of colorsService.colors"
-  [style.backgroundColor]="color"
+<app-color-bar
+  [color]="color"
   (click)="onColorClicked(color)"
-></div>
+  *ngFor="let color of colorsService.colors"
+></app-color-bar>
 
 <div *ngIf="showTrainingSection">
   <app-copyrights></app-copyrights><br />
