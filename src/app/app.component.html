@@ -14,13 +14,13 @@
 
 <div
   class="color-item"
-  *ngFor="let color of colors"
+  *ngFor="let color of colorsService.colors"
   [style.backgroundColor]="color"
   (click)="onColorClicked(color)"
 ></div>
 
 <div *ngIf="showTrainingSection">
-  <app-copyrights></app-copyrights>
+  <app-copyrights></app-copyrights><br />
   <div *ngIf="text != ''">
     <img [src]="imgSrc" [alt]="title" />
     <a [href]="linkUrl" target="_blank">link</a>

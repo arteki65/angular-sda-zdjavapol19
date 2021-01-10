@@ -1,3 +1,4 @@
+import { ColorsService } from './services/colors.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
@@ -16,9 +17,9 @@ export class AppComponent implements OnInit, OnDestroy {
   btnTextColor = 'black';
   pActive = true;
 
-  colors: string[] = ['red', 'green', 'blue', 'grey', 'yellow', 'purple'];
-
   private interval: any | null = null;
+
+  constructor(public colorsService: ColorsService) {}
 
   ngOnInit(): void {
     this.interval = setInterval(() => {
