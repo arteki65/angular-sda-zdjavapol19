@@ -1,10 +1,6 @@
-<!-- TODO: replace one way data bindings with ngClass -->
-<!-- in CSS create two class, .header-look-one .header-look-two -->
-<!-- ngClass should be controlled by headerLook field, if headerLook is 'one' -> header-look-one else header-look-two -->
 <h1
   (mousemove)="onMouseMove()"
-  [style.color]="headerTextColor"
-  [style.backgroundColor]="backgroundColor"
+  [ngClass]="{ headerLookOne: cActive, headerLookTwo: !cActive }"
 >
   {{ title | uppercase }}
 </h1>

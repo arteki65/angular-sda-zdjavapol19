@@ -10,9 +10,7 @@ export class AppComponent implements OnInit, OnDestroy {
   imgSrc = 'https://angular.io/assets/images/logos/angular/logo-nav@2x.png';
   linkUrl = 'https://google.com';
   linkUrl2 = 'https://youtube.com';
-  // TODO: delete headerTextColor and backgroundColor, introduce headerLook: 'one' | 'two'
-  headerTextColor: 'yellow' | 'blue' = 'yellow';
-  backgroundColor: 'red' | 'black' = 'red';
+  cActive = true;
   text = '';
   showTrainingSection = true;
   btnTextColor = 'black';
@@ -24,14 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.interval = setInterval(() => {
-      // TODO: ajust logic to use headerLook field
-      if (this.headerTextColor === 'yellow' && this.backgroundColor === 'red') {
-        this.headerTextColor = 'blue';
-        this.backgroundColor = 'black';
-      } else {
-        this.headerTextColor = 'yellow';
-        this.backgroundColor = 'red';
-      }
+      this.cActive = !this.cActive;
     }, 1000);
   }
 
