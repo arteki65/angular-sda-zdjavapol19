@@ -9,6 +9,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'sda APP!!!';
   imgSrc = 'https://angular.io/assets/images/logos/angular/logo-nav@2x.png';
   linkUrl = 'https://google.com';
+  linkUrl2 = 'https://youtube.com';
   headerTextColor: 'yellow' | 'blue' = 'yellow';
   backgroundColor: 'red' | 'black' = 'red';
   text = '';
