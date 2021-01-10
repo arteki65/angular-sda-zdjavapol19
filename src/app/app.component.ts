@@ -12,6 +12,7 @@ export class AppComponent implements OnInit, OnDestroy {
   headerTextColor: 'yellow' | 'blue' = 'yellow';
   backgroundColor: 'red' | 'black' = 'red';
   text = '';
+  text2 = '';
 
   private interval: any | null = null;
 
