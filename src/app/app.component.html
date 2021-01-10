@@ -1,3 +1,6 @@
+<!-- TODO: replace one way data bindings with ngClass -->
+<!-- in CSS create two class, .header-look-one .header-look-two -->
+<!-- ngClass should be controlled by headerLook field, if headerLook is 'one' -> header-look-one else header-look-two -->
 <h1
   (mousemove)="onMouseMove()"
   [style.color]="headerTextColor"
@@ -5,7 +8,20 @@
 >
   {{ title | uppercase }}
 </h1>
-<button (click)="clickHandler()">Tooggle training section</button>
+<button (click)="clickHandler()" [style.color]="btnTextColor">
+  Tooggle training section
+</button>
+
+<p [ngClass]="{ active: pActive, inactive: !pActive }">
+  Angular Directives Are Cool!
+</p>
+
+<div
+  class="color-item"
+  *ngFor="let color of colors"
+  [style.backgroundColor]="color"
+  (click)="onColorClicked(color)"
+></div>
 
 <div *ngIf="showTrainingSection">
   <app-copyrights></app-copyrights>
