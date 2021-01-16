@@ -4,6 +4,9 @@
 >
   {{ title | uppercase }}
 </h1>
+
+<h2>Dziś imieniny obchodzą: {{ namedays }}</h2>
+
 <button (click)="clickHandler()" [style.color]="btnTextColor">
   Tooggle training section
 </button>
@@ -14,7 +17,7 @@
 
 <app-color-bar
   [color]="color"
-  (click)="onColorClicked(color)"
+  (onColorSelected)="onColorClicked($event)"
   *ngFor="let color of colorsService.colors"
 ></app-color-bar>
 

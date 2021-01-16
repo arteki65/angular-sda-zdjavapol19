@@ -1,5 +1,8 @@
+import { NamedaysApiService } from './services/namedays-api.service';
 import { ColorsService } from './services/colors.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import './dto/namedays.dto';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +19,14 @@ export class AppComponent implements OnInit, OnDestroy {
   showTrainingSection = true;
   btnTextColor = 'black';
   pActive = true;
+  namedays = '';
 
   private interval: any | null = null;
 
-  constructor(public colorsService: ColorsService) {}
+  constructor(
+    public colorsService: ColorsService,
+    private api: NamedaysApiService
+  ) {}
 
   ngOnInit(): void {
     this.interval = setInterval(() => {
@@ -36,6 +43,14 @@ export class AppComponent implements OnInit, OnDestroy {
   clickHandler() {
     this.showTrainingSection = !this.showTrainingSection;
     this.pActive = !this.pActive;
+
+    this.api.fetchTodayNamedays().subscribe(
+      (todayNamedays) => {
+        this.namedays = todayNamedays;
+      },
+      (error) => alert('Something went wrong. Try again later.')
+    );
+    this.api.testHttpClient();
   }
 
   onMouseMove() {

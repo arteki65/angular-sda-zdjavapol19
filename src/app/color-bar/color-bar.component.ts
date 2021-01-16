@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-color-bar',
@@ -7,8 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ColorBarComponent implements OnInit {
   @Input() color: string = '';
+  @Output() onColorSelected = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onColorClicked() {
+    this.onColorSelected.emit(this.color);
+  }
 }
