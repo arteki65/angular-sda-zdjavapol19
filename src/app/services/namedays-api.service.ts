@@ -7,23 +7,22 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class NamedaysApiService {
-  private readonly url =
+  private readonly todaysNamedaysUrl =
     'https://api.abalin.net/today?country=pl&timezone=Europe/Prague';
+  private readonly yesterdaysNamedaysUrl =
+    'https://api.abalin.net/yesterday?country=pl&timezone=Europe/Prague';
 
   constructor(private http: HttpClient) {}
 
   fetchTodayNamedays(): Observable<string> {
     return this.http
-      .get<Namedays>(this.url)
+      .get<Namedays>(this.todaysNamedaysUrl)
       .pipe(map((namedays) => namedays.data.namedays.pl));
   }
 
-  testHttpClient() {
-    this.http
-      .get<Namedays>(this.url, {
-        observe: 'events',
-        reportProgress: true,
-      })
-      .subscribe((response) => console.log('httpClientTest', response));
+  fetchYesterdaysNamedays(): Observable<string> {
+    return this.http
+      .get<Namedays>(this.yesterdaysNamedaysUrl)
+      .pipe(map((namedays) => namedays.data.namedays.pl));
   }
 }

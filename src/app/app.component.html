@@ -1,33 +1,4 @@
-<h1
-  (mousemove)="onMouseMove()"
-  [ngClass]="{ headerLookOne: cActive, headerLookTwo: !cActive }"
->
-  {{ title | uppercase }}
-</h1>
-
-<h2>Dziś imieniny obchodzą: {{ namedays }}</h2>
-
-<button (click)="clickHandler()" [style.color]="btnTextColor">
-  Tooggle training section
-</button>
-
-<p [ngClass]="{ active: pActive, inactive: !pActive }">
-  Angular Directives Are Cool!
-</p>
-
-<app-color-bar
-  [color]="color"
-  (onColorSelected)="onColorClicked($event)"
-  *ngFor="let color of colorsService.colors"
-></app-color-bar>
-
-<div *ngIf="showTrainingSection">
-  <app-copyrights></app-copyrights><br />
-  <div *ngIf="text != ''">
-    <img [src]="imgSrc" [alt]="title" />
-    <a [href]="linkUrl" target="_blank">link</a>
-    <a [href]="linkUrl2" target="_blank">second link</a>
-  </div>
-  <input type="text" [(ngModel)]="text" />
-  <p>{{ text }}</p>
-</div>
+<h1>Welcome to Namedays App!</h1>
+<app-nav></app-nav>
+<router-outlet></router-outlet>
+<app-loading-indicator></app-loading-indicator>

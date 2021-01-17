@@ -2,22 +2,6 @@ h1 {
   text-align: center;
 }
 
-p.active {
-  background-color: transparent;
-  cursor: pointer;
-}
-
-p.inactive {
-  background-color: grey;
-  border: 1px solid black;
-}
-
-h1.headerLookOne {
-  color: blue;
-  background-color: black;
-}
-
-h1.headerLookTwo {
-  color: yellow;
-  background-color: red;
+p {
+  text-align: center;
 }
