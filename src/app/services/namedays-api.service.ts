@@ -13,6 +13,8 @@ export class NamedaysApiService {
     'https://api.abalin.net/yesterday?country=pl&timezone=Europe/Prague';
   private readonly searchByDateUrl =
     'https://api.abalin.net/namedays?country=pl&';
+  private readonly searchByNameUrl =
+    'https://api.abalin.net/getdate?&country=pl&name=';
 
   constructor(private http: HttpClient) {}
 
@@ -32,5 +34,28 @@ export class NamedaysApiService {
     return this.http
       .get<Namedays>(`${this.searchByDateUrl}month=${month}&day=${day}`)
       .pipe(map((namedays) => namedays.data.namedays.pl));
+  }
+  searchByName(
+    name: string
+  ): Observable<{ dates: Array<{ month: number; day: number }> }> {
+    return this.http
+      .get<{
+        'country code': string;
+        results: Array<{
+          day: number;
+          month: number;
+        }>;
+      }>(this.searchByNameUrl + name)
+      .pipe(
+        map((result) => {
+          const dates = result.results.map((el) => ({
+            day: el.day,
+            month: el.month,
+          }));
+          return {
+            dates: dates,
+          };
+        })
+      );
   }
 }

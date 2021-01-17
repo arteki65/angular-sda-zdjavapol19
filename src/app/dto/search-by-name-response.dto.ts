@@ -1,0 +1,3 @@
+interface SearchByNameResponse {
+  countrt;
+}
