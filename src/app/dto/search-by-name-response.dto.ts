@@ -1,3 +1,0 @@
-interface SearchByNameResponse {
-  countrt;
-}
