@@ -9,6 +9,8 @@ import { map } from 'rxjs/operators';
 export class NamedaysApiService {
   private readonly todaysNamedaysUrl =
     'https://api.abalin.net/today?country=pl&timezone=Europe/Prague';
+    private readonly tomorrowNamedaysUrl =
+    'https://api.abalin.net/tomorrow?country=pl&timezone=Europe/Prague';
   private readonly yesterdaysNamedaysUrl =
     'https://api.abalin.net/yesterday?country=pl&timezone=Europe/Prague';
   private readonly searchByDateUrl =
@@ -21,6 +23,11 @@ export class NamedaysApiService {
   fetchTodayNamedays(): Observable<string> {
     return this.http
       .get<Namedays>(this.todaysNamedaysUrl)
+      .pipe(map((namedays) => namedays.data.namedays.pl));
+  }
+  fetchTomorrowNamedays(): Observable<string> {
+    return this.http
+      .get<Namedays>(this.tomorrowNamedaysUrl)
       .pipe(map((namedays) => namedays.data.namedays.pl));
   }
 
