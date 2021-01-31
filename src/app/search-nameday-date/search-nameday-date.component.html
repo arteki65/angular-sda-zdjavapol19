@@ -4,8 +4,7 @@
     <button (click)="onSearch()">Search</button>
   </div>
   <div *ngIf="showContent">
-    <p>On name {{ name }} namdeays in Poland are on datys:</p>
-    <li>
-       {{showValue}}
-    </li>
-  </div>
+    <p>On name {{ name }} namedays in Poland are on days:</p>
+    <p *ngFor="let date of showValue">Day ={{date.day}}, Month = {{date.month}}</p>
+    
+  
